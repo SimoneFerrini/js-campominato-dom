@@ -74,6 +74,7 @@ let isEnded = false;
 
 
 btnPlayEl.addEventListener("click", function (){
+    finalMessageEl.innerHTML ="";
     gridEl.innerHTML = "";
     isEnded = false;
     let level = document.getElementById("level").value;
@@ -125,6 +126,13 @@ btnPlayEl.addEventListener("click", function (){
                         newCell.classList.add("bomb");
                         finalMessageEl.innerHTML = "Hai perso... Il tuo punteggio è: " + score;
                         isEnded = true;
+
+                        let cellList = document.querySelectorAll(".my-cell");
+                        for(let i =0; i < difficult; i++){
+                            if(bombsList.includes(i+1)){
+                                cellList[i].classList.add("bomb");
+                            }
+                        }
                     }
                 }
             
@@ -132,19 +140,15 @@ btnPlayEl.addEventListener("click", function (){
                 if(score == difficult - 16){
                     finalMessageEl.innerHTML = "Hai vinto!!! Il tuo punteggio è: " + score;
                     isEnded = true;
+
+                    let cellList = document.querySelectorAll(".my-cell");
+                     for(let i =0; i < difficult; i++){
+                        if(bombsList.includes(i+1)){
+                         cellList[i].classList.add("bomb");
+                        }
+                     }
                 }
 
-                
-            } else{
-                /*scopri tutte le bombe*/
-                let cellList = document.getElementById("my-grid").childNodes
-                for(let i =0; i < difficult; i++){
-                    for(let j = 0; j < bombsList.length; j++){
-                        if(cellList[i].value == bombsList[j]){
-                            cellList[i].classList.add("bomb");
-                        }
-                    }
-                }
             }
             
         })
