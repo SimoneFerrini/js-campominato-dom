@@ -134,7 +134,17 @@ btnPlayEl.addEventListener("click", function (){
                     isEnded = true;
                 }
 
-                console.log(isEnded);
+                
+            } else{
+                /*scopri tutte le bombe*/
+                let cellList = document.getElementById("my-grid").childNodes
+                for(let i =0; i < difficult; i++){
+                    for(let j = 0; j < bombsList.length; j++){
+                        if(cellList[i].value == bombsList[j]){
+                            cellList[i].classList.add("bomb");
+                        }
+                    }
+                }
             }
             
         })
