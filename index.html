@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS campominato grid</title>
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!--my style-->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <header class="my-header-display">
+        <div class="my-logo-section">
+            <div class="my-img-container">
+                <img src="img/logo.png" alt="logo" class="my-logo-img">
+            </div>
+            <h1>Campo Minato</h1> 
+        </div>
+        <div class="my-logo-section">
+            <span>Difficoltà: </span>
+            <div>
+                <select name="difficult" id="level">
+                    <option value="1" selected>Easy</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Hard</option>
+                </select>
+            </div>
+            <div>
+                <button id="my-btn-play">Play</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="my-main-bgc">
+        <div class="container my-main-display">
+            <div id="my-grid">
+                <h2>Premi il pulsante Play per far apparire la griglia</h2>
+                
+            </div>
+            <div id="final-message"></div>
+        </div>
+    </main>
+
+    <footer>
+        <span class="my-footer-display">Made with &hearts; by <a href="index.html">Simone Ferrini</a></span>
+    </footer>
+
+
+
+<!--script bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+<!--my script-->    
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
