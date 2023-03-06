@@ -75,7 +75,7 @@ let isEnded = false;
 
 btnPlayEl.addEventListener("click", function (){
     gridEl.innerHTML = "";
-    
+    isEnded = false;
     let level = document.getElementById("level").value;
     
     /*genero liv difficoltà*/
