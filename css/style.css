@@ -48,7 +48,8 @@
 
 .my-main-display{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 3em 0;
     
 }

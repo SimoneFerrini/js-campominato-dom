@@ -65,9 +65,10 @@ let btnPlayEl = document.getElementById("my-btn-play");
 let gridEl = document.getElementById("my-grid");
 let difficult;
 
-let finaMessageEl = document.getElementById("final-message");
+let finalMessageEl = document.getElementById("final-message");
 let score = 0;
 let bombsList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let isEnded = false;
 
 
 
@@ -102,7 +103,6 @@ btnPlayEl.addEventListener("click", function (){
             addBomb=false;
         }
         if(addBomb){
-
             bombsList[indexBombs]=newBomb;
             indexBombs++;
         }
@@ -115,17 +115,27 @@ btnPlayEl.addEventListener("click", function (){
         let newCell = createNewCellWithNumber(i);
 
         newCell.addEventListener("click", function() {
-            newCell.classList.add("active");
-            console.log(i);
+            if(isEnded == false){
+                newCell.classList.add("active");
+                console.log(i);
 
-            for(let j=0; j<bombsList.length; j++){
-                if(i == bombsList[j]){
-                    newCell.classList.remove("active");
-                    newCell.classList.add("bomb");
-                    
+                for(let j=0; j<bombsList.length; j++){
+                    if(i == bombsList[j]){
+                        newCell.classList.remove("active");
+                        newCell.classList.add("bomb");
+                        finalMessageEl.innerHTML = "Hai perso... Il tuo punteggio è: " + score;
+                        isEnded = true;
+                    }
                 }
-            }
             
+                score++;
+                if(score == difficult - 16){
+                    finalMessageEl.innerHTML = "Hai vinto!!! Il tuo punteggio è: " + score;
+                    isEnded = true;
+                }
+
+                console.log(isEnded);
+            }
             
         })
     }
