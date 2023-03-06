@@ -67,7 +67,7 @@ let difficult;
 
 let finaMessageEl = document.getElementById("final-message");
 let score = 0;
-let bombsList = [];
+let bombsList = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 
 
@@ -77,6 +77,7 @@ btnPlayEl.addEventListener("click", function (){
     
     let level = document.getElementById("level").value;
     
+    /*genero liv difficoltà*/
     
     if(level == 1){
         difficult = 100;
@@ -91,7 +92,24 @@ btnPlayEl.addEventListener("click", function (){
         document.getElementById("my-grid").style.width = "420px";
     }
 
+    /*creo le bombe*/
+    let indexBombs=0;
+    while(indexBombs < bombsList.length){
+        let addBomb = true;
+        let newBomb = randomNumberBetween(1, difficult);
+        for(let i=0; i<bombsList.length; i++)
+        if(newBomb==bombsList[i]){
+            addBomb=false;
+        }
+        if(addBomb){
 
+            bombsList[indexBombs]=newBomb;
+            indexBombs++;
+        }
+        
+    } console.log(bombsList);
+
+    /*creo la griglia/celle*/
 
     for(let i=1; i<= difficult; i++){
         let newCell = createNewCellWithNumber(i);
@@ -99,10 +117,22 @@ btnPlayEl.addEventListener("click", function (){
         newCell.addEventListener("click", function() {
             newCell.classList.add("active");
             console.log(i);
+
+            for(let j=0; j<bombsList.length; j++){
+                if(i == bombsList[j]){
+                    newCell.classList.remove("active");
+                    newCell.classList.add("bomb");
+                    
+                }
+            }
+            
+            
         })
     }
 })
 
+
+/*functions*/
 
 function createNewCellWithNumber(num){
     let newCell = document.createElement("div");
@@ -118,6 +148,3 @@ function randomNumberBetween(min, max){
     return random;
 }
 
-function createBombsArray(){
-    
-}
