@@ -108,12 +108,13 @@ btnPlayEl.addEventListener("click", function (){
             indexBombs++;
         }
         
-    } console.log(bombsList);
+    } 
 
     /*creo la griglia/celle*/
 
     for(let i=1; i<= difficult; i++){
         let newCell = createNewCellWithNumber(i);
+        let clicked = false;
 
         newCell.addEventListener("click", function() {
             if(isEnded == false){
@@ -135,8 +136,11 @@ btnPlayEl.addEventListener("click", function (){
                         }
                     }
                 }
-            
-                score++;
+                 if(clicked == false){
+                    score++;
+                    clicked = true;
+                 }
+                
                 if(score == difficult - 16){
                     finalMessageEl.innerHTML = "Hai vinto!!! Il tuo punteggio è: " + score;
                     isEnded = true;
