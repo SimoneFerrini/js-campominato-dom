@@ -76,6 +76,7 @@ let isEnded = false;
 btnPlayEl.addEventListener("click", function (){
     finalMessageEl.innerHTML ="";
     gridEl.innerHTML = "";
+    score = 0;
     isEnded = false;
     let level = document.getElementById("level").value;
     
